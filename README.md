@@ -3,61 +3,60 @@ Software to Programm SA/DRA818 on uDraCard
 
 ![alt tag](https://i2.wp.com/blog.f8asb.com/wp-content/uploads/2020/11/udracardetusvxcard.png?w=500)
 
-Pour plus d'informations sur la carte uDraCard se rendre sur la page dedié : <http://blog.f8asb.com/usvxcard/>
+For more information on the uDracard go to : <http://blog.f8asb.com/usvxcard/>
 
-## INSTALLATION LOGICIEL
+## INSTALLATION Of the Program
 
-
-Cette documentation considère que vous avez l'application GIT installée.
+This document require that you install the git package in the operating system.
 
 <https://git-scm.com/book/fr/v2/Démarrage-rapide-Installation-de-Git>
 
-Se rendre dans le repertoire /opt/ et telecharger le pack:
 ```
-cd /opt/
-git clone https://github.com/F8ASB/uDraCard.git
+Install as follows
+
+git clone https://github.com/F5VMR/uDraCard.git
 ```
-## CONFIGURATION DES SWITCHS SUR LA uDraCard
-Il est necessaire de positionner les switch 2 et 3 en ON.
+## CONFIGURATION OF THE SWITCHES ON THE uDraCard
+It is necessary to place the switches 2 and 3 to ON.
 
-## LANCEMENT LOGICIEL
+## Start the program
 
 ```
-bash /opt/uDraCard/uDraCard_config.sh
+sudo bash uDraCard/uDraCard_config.sh
 ```
 
-## LE MENU
+## THE MENU
 
-Le menu est en deux parties:
+The menu is in two parts:
 
-La première pour entrer les parametres de programmation du SA/DRA818 en repondant à des questions.
+The first take the parameters to program the SA818 after answering the questions.
 
-Le deuxième est utiliser pour transférer les parametres dans le DRA/SA818 en liaison série.
+The second transfers the parameters to the SA818 by the series connection.
 
 ![alt tag](http://blog.f8asb.com/wp-content/uploads/2020/11/uDraCard_menu.png?w=500)
 
-IMPORTANT: Pour se deplacer dans le menu, utiliser les fleches, la barre espace pour selectionner et la touche tabulation pour pour aller dans la partie OK ou annuler.
+IMPORTANT: To move about the menu, use the arrow keys, and the space bar to select the menu item, and the tab key to go to the item to select or to cancel
 
 ## PROCEDURE
-1- Eteindre le raspberry
+1- Power down the raspberry
 ```
 sudo halt
 ```
-2- Placer les cavaliers 2 et 3 sur ON
+2- Turn the switches 2 and 3 to ON
 
-3- Alimenter les raspberry
+3- Power up the raspberry
 
-4- Se connecter en SSH sur le Raspberry via putty ou en console.
+4- Connect by SSH to the Raspberry via putty or another console.
 
 5 -bash /opt/uDraCard/uDraCard_config.sh
 
-6- choisir le menu 1 et repondre aux questions afin d'effectuer le parametrage
+6- choose the menu 1 and answer the questions to add each parameter
 
-7- choisir le menu 2 pour programmer le SA/DRA818
+7- choose the menu 2 to program the SA818
 
-8- Eteindre le raspberry ( voir etape 1)
+8- Power down the raspberry ( see stage 1)
 
-9- Remettre les switchs 2 et 3 en OFF
+9- Turn the switches 2 and 3 to OFF
 
-10- Alimenter le Raspberry
+10- Power up the Raspberry
 
