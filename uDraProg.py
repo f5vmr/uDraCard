@@ -17,7 +17,7 @@ def validate(freq):
 	r = re.compile('\d{3}[\s.]\d{4}')
 	s = str(freq)
 	if len(s) ==8 and r.match(s):
-		print(freq+"->FREQUENCY CONFORMEs")
+		print(freq+"->FREQUENCIES CONFORM")
 	else:
 		print('\x1b[7;37;41m'+freq+"->ERROR INPUTTING FREQUENCY, TRY TO REDO THE CONFIGURATION"+'\x1b[0m')
 		exit()
