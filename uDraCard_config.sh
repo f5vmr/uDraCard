@@ -1,11 +1,11 @@
-whiptail --title "INFORMATION:" --msgbox "Ce programme permet de programmer la uDraCard, il est necessaire de positionner les switchs 2 et 3 sur ON.                                                                             Team F4ICR/F5SWB/F8ASB" 15 60
+whiptail --title "INFORMATION:" --msgbox "This program allows the programming of the uDraCard, It is necessaryto turn the switches 2 et 3 to ON.                                                                             Team F4ICR/F5SWB/F8ASB" 15 60
 
 while : ; do
 
-choix=$(whiptail --title "Choisir votre action" --radiolist \
-"Que voulez vous faire ?" 15 50 4 \
+choix=$(whiptail --title "Make your choice now " --radiolist \
+"What do you wish to do ?" 15 50 4 \
 "1" "CONFIGURATION uDraCard " ON \
-"2" "ENVOYER SUR uDraCard " OFF 3>&1 1>&2 2>&3)
+"2" "Send to the uDraCard " OFF 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -19,23 +19,23 @@ choixfreqtx()
 
 {
 
-freqtx=$(whiptail --inputbox "Fréquence TX XXX.XXXX ?" 8 39 433.5000 --title "Frequence TX" 3>&1 1>&2 2>&3)
+freqtx=$(whiptail --inputbox "Frequency TX XXX.XXXX ?" 8 39 433.5000 --title "Frequency TX" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
-    echo "Frequence TX " $freqtx
+    echo "Frequency TX " $freqtx
     choixctcsstx
 else
-    echo "Annulation"; break;
+    echo "Cancel"; break;
 fi
 }
 
 choixctcsstx()
 {
-CTCSSTX=$(whiptail --title "Choisir votre CTCSS" --radiolist \
-"Frequence CTCSS en TX ?" 40 32 32 \
-"0000" "PAS DE CTCSS" ON \
+CTCSSTX=$(whiptail --title "Choose your CTCSS" --radiolist \
+"Frequency CTCSS on TX ?" 40 32 32 \
+"0000" "No CTCSS" ON \
 "0001" "67.0Hz" OFF \
 "0002" "71.9Hz" OFF \
 "0003" "74.4Hz" OFF \
@@ -80,24 +80,24 @@ if [ $exitstatus = 0 ]; then
     echo "CTCSS TX " $CTCSS
     choixfreqrx
 else
-    echo "Annulation"; choixfreqtx;
+    echo "Cancel"; choixfreqtx;
 fi
 }
 
 choixfreqrx()
 {
 
-freqrx=$(whiptail --inputbox "Fréquence RX XXX.XXXX ?" 8 39 433.5000 --title "Frequence RX" 3>&1 1>&2 2>&3)
+freqrx=$(whiptail --inputbox "Frequency RX XXX.XXXX ?" 8 39 433.5000 --title "Frequency RX" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
 if [ $exitstatus = 0 ];
 
 then
-    echo "Frequence RX " $freqrx;
+    echo "Frequency RX " $freqrx;
     choixctcssrx
 else
-    echo "Annulation"; 
+    echo "Cancel"; 
     choixctcsstx;
 fi
 
@@ -105,9 +105,9 @@ fi
 
 choixctcssrx()
 {
-CTCSSRX=$(whiptail --title "Choisir votre CTCSS" --radiolist \
-"Frequence CTCSS en RX ?" 40 32 32 \
-"0000" "PAS DE CTCSS" ON \
+CTCSSRX=$(whiptail --title "Choose your CTCSS" --radiolist \
+"Frequency CTCSS on RX ?" 40 32 32 \
+"0000" "No CTCSS" ON \
 "0001" "67.0Hz" OFF \
 "0002" "71.9Hz" OFF \
 "0003" "74.4Hz" OFF \
@@ -153,15 +153,15 @@ if [ $exitstatus = 0 ]; then
     echo "CTCSS RX " $CTCSSRX
     choixpas
 else
-    echo "Annulation"; choixfreqrx;
+    echo "Cancel"; choixfreqrx;
 fi
 }
 
 choixpas()
 
 {
- SPACE=$(whiptail --title "Modes de Transmission :" --radiolist \
-"Votre choix ?" 15 40 6 \
+ SPACE=$(whiptail --title "Modes of Transmission :" --radiolist \
+"Your choice ?" 15 40 6 \
 "0" "NFM - 12.5Khz " ON \
 "1" "WFM - 25Khz " OFF 3>&1 1>&2 2>&3)
 exitstatus=$?
@@ -170,47 +170,47 @@ if [ $exitstatus = 0 ]; then
     echo "PAS : " $SPACE
     choixhighpass
 else
-    echo "Annulation";choixctcssrx ;
+    echo "Cancel";choixctcssrx ;
 fi
 }
 
 choixhighpass()
 
 {
-HIGHPASS=$(whiptail --title "Audio TX - Activation des aigus" --radiolist \
-"Activer le HIGHPASS ?" 15 40 6 \
-"0" "OUI " OFF \
-"1" "NON " ON 3>&1 1>&2 2>&3)
+HIGHPASS=$(whiptail --title "Audio TX - level of treble" --radiolist \
+"Activate the HIGHPASS filter ?" 15 40 6 \
+"0" "Yes " OFF \
+"1" "No " ON 3>&1 1>&2 2>&3)
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
     echo "HIGHPASS : " $HIGHPASS
     choixlowpass
 else
-    echo "Annulation";choixpas ;
+    echo "Cancel";choixpas ;
 fi
 }
 
 choixlowpass()
 
 {
-LOWPASS=$(whiptail --title "Audio TX - Activation des graves" --radiolist \
-"Activer le LOWPASS ?" 15 40 6 \
-"0" "OUI " OFF \
-"1" "NON " ON 3>&1 1>&2 2>&3)
+LOWPASS=$(whiptail --title "Audio TX - Activation of the bass" --radiolist \
+"Activate the LOWPASS filter ?" 15 40 6 \
+"0" "Yes " OFF \
+"1" "No " ON 3>&1 1>&2 2>&3)
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
     echo "LOWPASS : " $LOWPASS
     choixpreamp
 else
-    echo "Annulation";choixhighpass ;
+    echo "Cancel";choixhighpass ;
 fi
 }
 
 choixpreamp()
 {
-if (whiptail --title "Amplification des aigus" --yesno "Voulez vous conserver l'amplification des aigus (Oui par defaut)" 8 78); then
+if (whiptail --title "Amplification of treble" --yesno "DO you want to keep the amplification of the treble (yes by default)" 8 78); then
 
     PREAMP=1
     choixsquelch
@@ -224,58 +224,58 @@ echo "PREAMP: "$PREAMP
 choixsquelch()
 {
 
-SQUELCH=$(whiptail --title "Choisir le niveau de Squelch" --radiolist \
-"Votre choix ?" 15 60 9 \
-"0" "niveau 0 " OFF \
-"1" "niveau 1 " OFF \
-"2" "niveau 2 " ON \
-"3" "niveau 3 " OFF \
-"4" "niveau 4 " OFF \
-"5" "niveau 5 " OFF \
-"6" "niveau 6 " OFF \
-"7" "niveau 7 " OFF \
-"8" "niveau 8 " OFF 3>&1 1>&2 2>&3)
+SQUELCH=$(whiptail --title "Choose the level of the Squelch" --radiolist \
+"Your choice ?" 15 60 9 \
+"0" "level 0 " OFF \
+"1" "level 1 " OFF \
+"2" "level 2 " ON \
+"3" "level 3 " OFF \
+"4" "level 4 " OFF \
+"5" "level 5 " OFF \
+"6" "level 6 " OFF \
+"7" "level 7 " OFF \
+"8" "level 8 " OFF 3>&1 1>&2 2>&3)
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
-    echo "NIVEAU SQUELCH : " $SQUELCH
+    echo "LEVEL OF SQUELCH : " $SQUELCH
     choixvolume
 else
-    echo "Annulation"; choixpreamp;
+    echo "Cancel"; choixpreamp;
 fi
 }
 
 choixvolume()
 {
 
-VOLUME=$(whiptail --title "Choisir le niveau de volume" --radiolist \
-"Votre choix ?" 15 60 9 \
-"0" "niveau 0 " OFF \
-"1" "niveau 1 " OFF \
-"2" "niveau 2 " ON \
-"3" "niveau 3 " OFF \
-"4" "niveau 4 " OFF \
-"5" "niveau 5 " OFF \
-"6" "niveau 6 " OFF \
-"7" "niveau 7 " OFF \
-"8" "niveau 8 " OFF 3>&1 1>&2 2>&3)
+VOLUME=$(whiptail --title "Choose the level of volume" --radiolist \
+"Your choice ?" 15 60 9 \
+"0" "level 0 " OFF \
+"1" "level 1 " OFF \
+"2" "level 2 " ON \
+"3" "level 3 " OFF \
+"4" "level 4 " OFF \
+"5" "level 5 " OFF \
+"6" "level 6 " OFF \
+"7" "level 7 " OFF \
+"8" "level 8 " OFF 3>&1 1>&2 2>&3)
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
-    echo "NIVEAU DE VOLUME : " $VOLUME
+    echo "LEVEL OF VOLUME : " $VOLUME
     ecriturefichier
 else
-    echo "Annulation"; choixsquelch;
+    echo "Cancel"; choixsquelch;
 fi
 }
 
-#Ecriture du fichier de paramatres
+#Write the parameters
 
 ecrituredra()
 
 {
-echo "ENVOYER SUR LE DRA"
-whiptail --title "INFORMATION:" --msgbox "programmation la uDraCard, il est necessaire de positionner les switchs 2 et 3 sur ON, à la fin de la programmation le sytème redemarrera ..." 15 60
+echo "WRITE TO THE DRA"
+whiptail --title "INFORMATION:" --msgbox "programming the uDraCard, It is necessary to turn on switches 2 and 3 to ON, at the end of the programming the system will restart ..." 15 60
 
 python3 /opt/uDraCard/uDraProg.py
 exit 0
@@ -286,7 +286,7 @@ ecriturefichier()
 
 {
 
-echo "ECRITURE FICHIER PARAMETRAGE"
+echo "WRITING THE PARAMETERS"
 echo ""
 
 cat >/opt/uDraCard/parametres.py <<EOF
@@ -299,7 +299,7 @@ filterpre = '$PREAMP'   # Filter pre/de-emph
 lowpass= '$LOWPASS'
 highpass= '$HIGHPASS'
 
-# CONFIG GENERALE : 'AT+DMOSETGROUP={},{},{},{},{},{}\r\n'.format(channelspace, txfreq, rxfreq, txcxcss, squelch, rxcxcss)
+# GENERAL CONFIG  : 'AT+DMOSETGROUP={},{},{},{},{},{}\r\n'.format(channelspace, txfreq, rxfreq, txcxcss, squelch, rxcxcss)
 channelspace = '$SPACE'     # 0=12.5kHz, 1=25kHz
 txfreq = '$freqtx'          # TX frequency
 rxfreq = '$freqrx'          # RX frequency
