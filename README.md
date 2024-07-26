@@ -33,7 +33,6 @@ The first take the parameters to program the SA818 after answering the questions
 
 The second transfers the parameters to the SA818 by the series connection.
 
-![alt tag](http://blog.f8asb.com/wp-content/uploads/2020/11/uDraCard_menu.png?w=500)
 
 IMPORTANT: To move about the menu, use the arrow keys, and the space bar to select the menu item, and the tab key to go to the item to select or to cancel
 

@@ -167,7 +167,7 @@ choixpas()
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
-    echo "PAS : " $SPACE
+    echo "Step : " $SPACE
     choixhighpass
 else
     echo "Cancel";choixctcssrx ;
@@ -310,8 +310,9 @@ EOF
 
 }
 
+echo "END OF PROGRAM"
 
-
+exit 0
 
 case $choix in
 
