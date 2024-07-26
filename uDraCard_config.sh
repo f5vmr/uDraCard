@@ -266,15 +266,15 @@ rxctcss = '$CTCSSRX'        # CTCSS / CDCSS
 EOF
     }
 
-#    case $choix in
-#        1)
-#            choixfreqtx
-#            ;;
-#        2)
-#            pkill spotnik2hmi
-#            ecrituredra
-#            ;;
-#    esac
-#done
+    case $choix in
+        1)
+            choixfreqtx
+            ;;
+        2)
+            pkill spotnik2hmi
+            ecrituredra
+            ;;
+    esac
+done
 
 exit 0
