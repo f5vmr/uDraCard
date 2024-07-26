@@ -11,7 +11,7 @@ import json
 Json="/etc/spotnik/config.json"
 
 
-serport = '/dev/ttyAMA0'
+serport = '/dev/ttyS0'
 baud = '9600'
 ser = serial.Serial(serport, baud, timeout=2)
 
