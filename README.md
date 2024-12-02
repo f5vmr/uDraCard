@@ -43,7 +43,7 @@ sudo halt
 
 4- Connect by SSH to the Raspberry via putty or another console.
 
-5 -bash /opt/uDraCard/uDraCard_config.sh
+5 -sudo ./uDraCard/uDraCard_config.sh
 
 6- choose the menu 1 and answer the questions to add each parameter
 
