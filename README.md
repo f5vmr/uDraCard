@@ -7,10 +7,6 @@ For more information on the uDracard go to : <http://blog.f8asb.com/usvxcard/>
 
 ## INSTALLATION Of the Program
 
-This document require that you install the git package in the operating system.
-
-<https://git-scm.com/book/fr/v2/Démarrage-rapide-Installation-de-Git>
-
 ```
 Install as follows
 
