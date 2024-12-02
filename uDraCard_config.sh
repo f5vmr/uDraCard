@@ -238,7 +238,7 @@ while :; do
     ecrituredra() {
         echo "WRITE TO THE DRA"
         whiptail --title "INFORMATION:" --msgbox "Programming the uDraCard. It is necessary to turn on switches 2 and 3 to ON. At the end of the programming, the system will restart..." 15 60
-        python3 /opt/uDraCard/uDraProg.py
+        python3 /uDraCard/uDraProg.py
         exit 0
     }
 
@@ -246,7 +246,7 @@ while :; do
         echo "WRITING THE PARAMETERS"
         echo ""
 
-        cat >/opt/uDraCard/parametres.py <<EOF
+        cat >/uDraCard/parametres.py <<EOF
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
