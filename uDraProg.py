@@ -8,7 +8,7 @@ import parametres as s
 
 import json
 
-Json="/etc/spotnik/config.json"
+Json="/etc/svxlink/config.json"
 
 
 serport = '/dev/serial0'
@@ -17,18 +17,18 @@ ser = serial.Serial(serport, baud, timeout=2)
 
 def updatefreq_json():
 
-    #ouverture de donnees JSON
+    #opening JSON
     with open(Json, 'r') as f:
         config = json.load(f)
         config['rx_qrg'] = str(s.rxfreq)
         config['tx_qrg'] = str(s.txfreq)
         config['ctcss_fq'] = str(s.txctcss)
-    #ecriture de donnees JSON
+    #writing JSON
     with open(Json, 'w') as f:
         json.dump(config, f) 
-        print('ecriture fichier Json')
+        print(' Json file written ')
 
-#CVERIFYING FREQUENCIES
+#VERIFYING FREQUENCIES
 def validate(freq):
 	r = re.compile('\d{3}[\s.]\d{4}')
 	s = str(freq)
